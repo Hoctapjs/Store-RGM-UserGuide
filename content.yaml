@@ -1,0 +1,214 @@
+# =====================================================================
+# Quy trình 0502 - Bảo trì thiết bị | Bản dành riêng CỬA HÀNG
+#
+# Nguồn: USERGUIDE_0502_Bao_Tri_Thiet_Bi_20260825_142151.pdf (bản 25/08/2026)
+# Ảnh:   D:/tmp/paf-tests/screenshots-guide/out/cap_new/0502/1708
+#
+# Nguyên tắc: chỉ nói việc cửa hàng CẦN LÀM và các trường CÓ Ý NGHĨA với
+# cửa hàng. Không đi sâu vào công việc của CMT, kho, mua hàng, cấu hình.
+# =====================================================================
+
+slides:
+
+# ---------------------------------------------------------------- bìa
+- layout: title
+  title: "Bảo trì thiết bị cửa hàng"
+  subtitle: "Quy trình 0502 · Hướng dẫn dành cho Cửa hàng"
+
+# ------------------------------------------------------ vai trò Store
+- layout: two_col
+  title: "Cửa hàng làm gì trong quy trình?"
+  subtitle: "Quy trình có 7 vai trò - cửa hàng chỉ chạm vào 3 thời điểm"
+  columns:
+    - heading: "Việc của cửa hàng"
+      items:
+        - "Báo hỏng - tạo phiếu khi thiết bị gặp sự cố"
+        - "Duyệt chi phí - nếu dưới 2 triệu (RGM)"
+        - "Nghiệm thu - xác nhận sau khi sửa xong"
+        - "Tạm hoãn sửa chữa khi đang giờ cao điểm"
+    - heading: "Không phải việc của cửa hàng"
+      items:
+        - "Tiếp nhận, kiểm tra hiện trường"
+        - "Khai vật tư, tính chi phí"
+        - "Xuất kho, mua vật tư, thuê thợ ngoài"
+        - "Thi công sửa chữa, chụp ảnh minh chứng"
+
+# ------------------------------------------------------------- agenda
+- layout: agenda
+  title: "Nội dung"
+  items:
+    - "Toàn cảnh: hành trình một phiếu bảo trì"
+    - "Bước 1 - Báo hỏng, tạo phiếu"
+    - "Bước 2 - Duyệt chi phí (RGM, dưới 2 triệu)"
+    - "Bước 3 - Nghiệm thu"
+    - "Tạm hoãn sửa chữa & mã QR thiết bị"
+    - "Tóm tắt: 3 việc cần nhớ"
+
+# --------------------------------------------------- sơ đồ toàn cảnh
+- layout: process
+  title: "Hành trình một phiếu bảo trì"
+  subtitle: "Ô đỏ là việc của cửa hàng - giữa các bước hệ thống tự gửi thông báo"
+  steps:
+    - name: "Báo hỏng"
+      actor: "CỬA HÀNG"
+      highlight: true
+      desc: "Tạo phiếu, chọn thiết bị và sự cố"
+    - name: "Tiếp nhận\nKiểm tra"
+      actor: "Kỹ thuật viên"
+      desc: "Ra hiện trường, khai vật tư, ước tính chi phí"
+    - name: "Duyệt\nchi phí"
+      actor: "RGM / OC / OM"
+      highlight: true
+      desc: "Cấp duyệt tùy theo tổng chi phí"
+    - name: "Vật tư\nSửa chữa"
+      actor: "Kỹ thuật viên"
+      desc: "Xuất kho hoặc mua bổ sung, rồi sửa"
+    - name: "Nghiệm thu"
+      actor: "CỬA HÀNG"
+      highlight: true
+      desc: "Đạt thì đóng phiếu, chưa đạt thì trả lại"
+    - name: "Hoàn tất"
+      actor: "Hệ thống"
+      desc: "Lưu toàn bộ lịch sử trên phiếu"
+  legend: "Cửa hàng nhớ 3 việc: báo hỏng, duyệt tiền (nếu dưới 2 triệu), nghiệm thu."
+
+# =============================== BƯỚC 1 ===============================
+- layout: section
+  number: "1"
+  title: "Báo hỏng"
+  subtitle: "Khi thiết bị tại cửa hàng gặp sự cố"
+
+- layout: screenshot_callout
+  title: "Tạo phiếu báo hỏng"
+  subtitle: "Maintenance → Maintenance Requests → New"
+  image: shots/01-tao-phieu.png
+  callouts:
+    - text: "Thiết bị - chọn thiết bị bị hỏng từ danh sách"
+    - text: "Sự cố - chọn từ danh mục có sẵn, đừng gõ tay"
+      note: "Chọn đúng sự cố thì hệ thống tự đặt mức ưu tiên và tính hạn SLA"
+    - text: "Cửa hàng và Category tự điền theo thiết bị đã chọn"
+    - text: "Priority và Hạn hoàn thành SLA hệ thống tự đặt, không nhập tay"
+    - text: "Thanh xanh phía trên cho biết thời gian tiếp nhận và xử lý cam kết"
+
+- layout: screenshot_bullets
+  title: "Loại bảo trì"
+  subtitle: "Cửa hàng báo hỏng luôn chọn Corrective"
+  image: shots/02-loai-bao-tri.png
+  bullets:
+    - "Corrective - sửa chữa khi hỏng. Đây là loại cửa hàng dùng"
+    - "Preventive - bảo trì định kỳ, hệ thống tự tạo phiếu"
+    - "Không cần đổi ô này, để mặc định Corrective"
+  note: "Phiếu định kỳ do hệ thống tự sinh, cửa hàng không phải tạo tay."
+
+- layout: screenshot_bullets
+  title: "Team và Người phụ trách"
+  subtitle: "Cửa hàng không cần điền hai ô này"
+  image: shots/03-team-phu-trach.png
+  image_side: right
+  bullets:
+    - "Hai ô này lúc tạo phiếu chỉ là giá trị mặc định"
+    - "Kỹ thuật viên sẽ nhận phiếu về đội mình ở bước sau"
+    - "Cửa hàng cứ để nguyên, không cần sửa"
+
+- layout: screenshot_callout
+  title: "Ghi chú và lưu phiếu"
+  image: shots/04-ghi-chu-luu.png
+  callouts:
+    - text: "Tab Ghi chú - mô tả cụ thể tình trạng hỏng"
+      note: "Viết rõ để kỹ thuật viên hình dung trước khi tới, đỡ mất công đi lại"
+    - text: "Bấm nút lưu (biểu tượng đám mây) để hoàn tất"
+    - text: "Phiếu vào chặng New Request, hệ thống báo cho đội bảo trì"
+    - text: "Việc của cửa hàng ở bước này kết thúc, chờ thông báo tiếp theo"
+
+# =============================== BƯỚC 2 ===============================
+- layout: section
+  number: "2"
+  title: "Duyệt chi phí"
+  subtitle: "Chỉ khi tổng chi phí dưới 2 triệu"
+
+- layout: table
+  title: "Ai duyệt tùy theo số tiền"
+  subtitle: "Mỗi phiếu chỉ qua MỘT cấp duyệt, không duyệt tuần tự cả ba"
+  headers: ["Bậc", "Tổng chi phí ước tính", "Người duyệt"]
+  col_widths: [14, 44, 42]
+  rows:
+    - ["1", "Dưới 2 triệu", "RGM — Cửa hàng trưởng"]
+    - ["2", "Từ 2 đến dưới 20 triệu", "OC — Operation Consultant"]
+    - ["3", "Từ 20 triệu trở lên", "OM — Operation Manager"]
+
+- layout: screenshot_callout
+  title: "Nhận thông báo cần duyệt"
+  subtitle: "Bấm biểu tượng đồng hồ trên thanh trên cùng"
+  image: shots/05-thong-bao-duyet.png
+  callouts:
+    - text: "Đồng hồ hoạt động hiện số việc đang chờ mình xử lý"
+    - text: "Bấm vào để xem danh sách phiếu cần duyệt"
+    - text: "Danh sách lọc sẵn theo việc của mình, kèm hạn SLA và cửa hàng"
+
+- layout: screenshot_callout
+  title: "Mở phiếu, vào lượt kiểm tra"
+  subtitle: "Nút Phê duyệt nằm trên lượt kiểm tra, không nằm trên phiếu"
+  image: shots/06-nut-luot-kiem-tra.png
+  callouts:
+    - text: "Bấm nút Lượt kiểm tra để mở đúng chỗ cần duyệt"
+      note: "Thông báo chỉ dẫn về phiếu, phải bấm tiếp nút này mới tới nơi duyệt"
+    - text: "Nhật ký bên phải ghi rõ tổng chi phí ước tính là bao nhiêu"
+
+- layout: screenshot_callout
+  title: "Đọc và quyết định"
+  subtitle: "Ba dòng luôn hiện đủ, nhưng chỉ dòng khớp số tiền mới có nút bấm"
+  image: shots/07-hop-phe-duyet.png
+  callouts:
+    - text: "Tổng chi phí ước tính - con số quyết định ai duyệt"
+    - text: "Kết quả kiểm tra - kỹ thuật viên ghi máy bị gì"
+    - text: "Đề xuất phương án - cách xử lý đề nghị"
+    - text: "Vật tư cần dùng - từng linh kiện và tình trạng tồn kho"
+    - text: "Nút xanh để duyệt, nút đỏ để từ chối"
+      note: "Thấy cả ba dòng đều không có nút, nghĩa là phiếu vượt 2 triệu, chờ OC hoặc OM"
+
+# =============================== BƯỚC 3 ===============================
+- layout: section
+  number: "3"
+  title: "Nghiệm thu"
+  subtitle: "Cửa hàng là người chốt cuối cùng"
+
+- layout: agenda
+  title: "Nghiệm thu sau khi sửa xong"
+  subtitle: "Mở phiếu ở trạng thái Chờ nghiệm thu, vào tab Nghiệm thu"
+  items:
+    - "Kiểm tra thực tế thiết bị đã chạy tốt chưa"
+    - "Xem ảnh minh chứng kỹ thuật viên đã chụp"
+    - "Ghi ghi chú nghiệm thu - phải trên 50 ký tự"
+    - "Nghiệm thu Đạt → phiếu đóng ở chặng Repaired"
+    - "Nghiệm thu Cần làm lại → phiếu quay lại cho kỹ thuật viên"
+
+- layout: two_col
+  title: "Hai điều cần biết thêm"
+  columns:
+    - heading: "Tạm hoãn sửa chữa"
+      items:
+        - "Dùng khi đang giờ cao điểm, muốn dời lịch sửa"
+        - "Bấm Tạm hoãn sửa chữa, nhập lý do"
+        - "Xong việc bấm Tiếp tục xử lý"
+        - "Hệ thống nhớ đúng bước đang dở, không mất tiến trình"
+    - heading: "Mã QR trên thiết bị"
+      items:
+        - "Mỗi thiết bị có mã QR dán trực tiếp"
+        - "Quét mã mở trang tra cứu công khai"
+        - "Xem thông tin thiết bị và 20 phiếu gần nhất"
+        - "Không cần đăng nhập"
+
+# ------------------------------------------------------------ tóm tắt
+- layout: table
+  title: "Tóm tắt: cửa hàng cần nhớ 3 việc"
+  subtitle: "Nếu chỉ nhớ được một slide, hãy nhớ slide này"
+  headers: ["#", "Khi nào", "Cửa hàng làm gì", "Kết quả"]
+  col_widths: [6, 24, 46, 24]
+  rows:
+    - ["1", "Thiết bị hỏng", "Tạo phiếu, chọn thiết bị và sự cố, ghi chú, lưu", "Phiếu vào New Request"]
+    - ["2", "Có thông báo duyệt", "Mở lượt kiểm tra, đọc chi phí, duyệt hoặc từ chối", "Chỉ khi dưới 2 triệu"]
+    - ["3", "Sửa xong", "Kiểm tra thực tế, ghi chú trên 50 ký tự, chốt", "Đạt / Cần làm lại"]
+
+- layout: title
+  title: "Cảm ơn"
+  subtitle: "Hỏng thì báo · Dưới 2 triệu thì duyệt · Sửa xong thì nghiệm thu"
